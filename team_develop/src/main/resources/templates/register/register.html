@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" th:href="@{/RegisterCss/register_style.css}" />
+	<title>Login</title>
+</head>
+
+<body>
+	<!-- header -->
+	<header>
+		<div class="logo-container">
+			<img src="./cdbf3d0d-9ac8-414c-9076-c6e6b9f50068.png" alt="" />
+			<h2 class="letter">JavaTeamDevelopment</h2>
+		</div>
+	</header>
+	<!-- main  -->
+	<main>
+		<h2 class="new-register-title">新規会員登録</h2>
+		<form action="@{/user/create}" th:object="${UserBean}" 　method="post">
+			<div class="main-container">
+				<div class="input-details">
+					<div class="user-id-container">
+						<p>User ID</p>
+						<div class="must-logo">
+							<p>必須</p>
+						</div>
+						<input type="text" class="text" />
+					</div>
+					<div class="mailaddress-container">
+						<p>MailAddress</p>
+						<div class="must-logo">
+							<p>必須</p>
+						</div>
+						<input type="text" class="text" />
+					</div>
+					<div class="password-container">
+						<p>PassWord</p>
+						<div class="must-logo">
+							<p>必須</p>
+						</div>
+						<input type="text" class="text" />
+					</div>
+					<input type="button" value="登録" class="btn" />
+					<li>
+						<a href="" class="create-new-account">ログイン画面へ</a>
+					</li>
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
+
+</html>

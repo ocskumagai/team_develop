@@ -20,6 +20,7 @@
 	<!-- main  -->
 	<main>
 		<h2 class="login-title">ログイン</h2>
+		<!-- formタグ　postで定義-->
 		<form th:action="@{/user-create}" th:object="${UserBean}" method="post">
 			<tr th:if="${validationError}" th:each="error : ${validationError}">
 				<div class="main-container">

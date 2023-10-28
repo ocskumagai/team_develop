@@ -31,7 +31,9 @@ public class loginController {
 		return mv;
 
 	}
-	@RequestMapping(value = "/user-create" , method = RequestMethod.POST)
+
+//	バリデーションチェック
+	@RequestMapping(value = "/user-create", method = RequestMethod.POST)
 	public String userCreate(@Validated @ModelAttribute UserBean userBean, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			List<String> errorList = new ArrayList<String>();
