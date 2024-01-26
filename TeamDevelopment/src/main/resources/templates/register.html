@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/register.css}" />
+    <title>会員登録画面</title>
+</head>
+
+<body>
+<!-- header -->
+<header>
+    <div class="logo-container">
+        <img src="/img/company.png" alt="" />
+        <h2 class="letter">JavaTeamDevelopment</h2>
+    </div>
+</header>
+<!-- main  -->
+<main>
+    <h2 class="new-register-title">新規会員登録</h2>
+    <form
+            th:action="@{/register/inputUser}"
+            th:method="post"
+            th:object="${userRequest}"
+    >
+        <div class="main-container">
+            <div class="input-details">
+                <div class="user-id-container">
+                    <p
+                            th:if="${#fields.hasErrors('userid')}"
+                            th:errors="*{userid}"
+                            style="color: red"
+                            class="error"
+                    >
+                        UserIDは10文字以内で入力してください
+                    </p>
+                    <label for="inputId" class="userid">UserId</label>
+                    <label class="must-logo">必須</label>
+                    <input
+                            type="text"
+                            class="text"
+                            id="inputId"
+                            th:field="*{userid}"
+                    />
+                </div>
+
+                <div class="email-container">
+                    <p
+                            th:if="${#fields.hasErrors('email')}"
+                            th:errors="*{email}"
+                            style="color: red"
+                            class="error"
+                    >
+                        メールアドレスは正しい形式で入力してください
+                    </p>
+                    <label for="inputEmail" class="email">MailAddress</label>
+                    <label class="must-logo">必須</label>
+                    <input
+                            type="text"
+                            class="text"
+                            id="inputEmail"
+                            th:field="*{email}"
+                    />
+                </div>
+
+                <div class="password-container">
+                    <p
+                            th:if="${#fields.hasErrors('password')}"
+                            th:errors="*{password}"
+                            style="color: red"
+                            class="error"
+                    >
+                        パスワードは10文字以内で入力してください
+                    </p>
+                    <label for="inputPassword" class="password">Password</label>
+                    <label class="must-logo">必須</label>
+                    <input
+                            type="text"
+                            class="text"
+                            id="inputPassword"
+                            th:field="*{password}"
+                    />
+                </div>
+                <button type="submit" class="btn" value="登録">登録</button>
+            </div>
+        </div>
+        <li>
+            <a href="login.html" th:href="@{/login}" class="create-new-account"
+            >ログイン画面へ</a
+            >
+        </li>
+    </form>
+</main>
+</body>
+</html>

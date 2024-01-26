@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>トップ画面</title>
+    <link href="./top.css" th:href="@{/css/top.css}" rel="stylesheet">
+</head>
+<body>
+<!--header-->
+<header>
+    <div class="logo-container">
+        <img src="/img/company.png" alt=""/>
+        <h2 class="letter">JavaTeamDevelopment</h2>
+    </div>
+</header>
+<main>
+    <div class="main-container">
+        <div class="introduce-container">
+            <div class="register-container">
+                <h1>自己紹介登録</h1>
+                <a href="#" class="btn">登録に進む</a>
+            </div>
+            <p>新しく自己紹介を作ります<br>
+                あなたをより知ってもらうために、<br>
+                趣味や一言を工夫しましょう<br>
+                最高の自己紹介を完成させて、よりあなたを<br>
+                知ってもらえるチャンスにしましょう。
+            </p>
+            <div class="view-preson-container">
+                <h1>自己紹介登録一覧</h1>
+                <a href="#" class="btn">一覧を編集する</a>
+            </div>
+            <p>登録している人を確認します<br>
+                登録している人の自己紹介を見てみましょう</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>

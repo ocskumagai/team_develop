@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    background-color: rgb(192, 196, 199);
+}
+
+/* header */
+header {
+    width: 100%;
+    height: 90px;
+    background-color: rgb(140, 142, 142);
+    border-bottom: 2px solid rgb(91, 92, 92);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 100px;
+    padding-left: 40px;
+    mix-blend-mode: multiply;
+
+}
+
+.logo-container .letter {
+    padding-right: 40px;
+}
+
+/* main */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px
+}
+
+.main-container {
+    height: 600px;
+    width: 500px;
+    background-color: white;
+    text-align: center;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.register-container h1 {
+    margin-right: 20px;
+    font-size: 30px;
+}
+
+.view-preson-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+.view-preson-container h1 {
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 50px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    color: black;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(121, 198, 201);
+    transition: 0.2s;
+}
