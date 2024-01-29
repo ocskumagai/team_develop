@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import static com.example.demo.constant.UrlConst.LOGIN;
+import static com.example.demo.constant.UrlConst.REGISTER;
+
 @Controller
 public class LoginController {
     @Autowired
@@ -23,32 +26,32 @@ public class LoginController {
 
     @Autowired
     HttpSession session;
-    @GetMapping("/login")
+
+    @GetMapping(LOGIN)
     public String displayLogin(@ModelAttribute UserRequest userRequest) {
         return "login";
     }
 
-//    エラーがあった場合このメソッドが呼び出される
-    @GetMapping(value = "/login", params = "error")
+    //エラーがあった場合このメソッドが呼び出される
+    @GetMapping(value = LOGIN, params = "error")
     public String viewWithError(Model model, @ModelAttribute UserRequest userRequest) {
-//        sessionからエラーメッセージを取得する
+        //sessionからエラーメッセージを取得する
         var errorInfo = (Exception) session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
         model.addAttribute("error", errorInfo.getMessage());
         return "login";
     }
 
-    @GetMapping("/register")
+    @GetMapping(REGISTER)
     public String displayRegister(@ModelAttribute UserRequest userRequest) {
         return "register";
     }
-    @PostMapping("/login")
+
+    @PostMapping(LOGIN)
     public String login(UserRequest userRequest, Model model) {
         var userInfo = userService.searchId(userRequest.getUserid());
-        var isCorrectUserAuth = userInfo.isPresent()
-                && userRequest.getPassword().equals(userInfo.get().getPassword());
         //ユーザー情報が取得できなかった場合;
         //入力値とデータベースの情報が一致した場合、トップ画面に遷移する
-        if (isCorrectUserAuth) {
+        if (passwordEncoder.matches(userInfo.getPassword(), userRequest.getPassword())) {
             return "redirect:/top";
         } else {
             String error = "パスワードが間違っています";

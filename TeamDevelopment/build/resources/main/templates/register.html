@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/register.css}" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" th:href="@{/css/register.css}"/>
     <title>会員登録画面</title>
 </head>
 
@@ -11,7 +11,7 @@
 <!-- header -->
 <header>
     <div class="logo-container">
-        <img src="/img/company.png" alt="" />
+        <img src="/img/company.png" alt=""/>
         <h2 class="letter">JavaTeamDevelopment</h2>
     </div>
 </header>
@@ -26,6 +26,7 @@
         <div class="main-container">
             <div class="input-details">
                 <div class="user-id-container">
+                    <p th:text="${unFindError}" style="color:red;" class="error"></p>
                     <p
                             th:if="${#fields.hasErrors('userid')}"
                             th:errors="*{userid}"

@@ -32,6 +32,9 @@
             </div>
             <p>登録している人を確認します<br>
                 登録している人の自己紹介を見てみましょう</p>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" name="logout" value="ログアウト">
+            </form>
         </div>
     </div>
 </main>
