@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href=""/>
+    <title>自己紹介入力画面</title>
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="/img/company.png" alt=""/>
+        <h2 class="letter">JavaTeamDevelopment</h2>
+    </div>
+</header>
+
+<main>
+    <p th:text="${completeMsg}"></p>
+    <h2>自己紹介登録</h2>
+    <div class="main-container">
+        <div th:object="${introductionForm}">
+            <div class="name-container">
+                <p>名前</p>
+                <p th:text="*{name}"></p>
+            </div>
+
+            <div class="kana-container">
+                <p>フリガナ</p>
+                <p th:text="*{kana}"></p>
+            </div>
+
+            <div class="gender-container">
+                <p>性別</p>
+                <p th:text="*{gender}"></p>
+            </div>
+
+            <div class="hobby-container">
+                <p>趣味</p>
+                <p th:each="hobby : *{hobbies}" th:text="${hobby}"></p>
+            </div>
+
+            <div class="word-container">
+                <p>一言</p>
+                <p th:text="*{word}"></p>
+            </div>
+            <form th:action="@{/confirm/complete}" method="post">
+                <input type="hidden" th:field="*{name}">
+                <input type="hidden" th:field="*{kana}">
+                <input type="hidden" th:field="*{gender}">
+                <input type="hidden" th:field="*{hobbies}">
+                <input type="hidden" th:field="*{word}">
+                <input type="submit" value="登録">
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

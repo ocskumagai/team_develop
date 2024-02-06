@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href=""/>
+    <title>自己紹介入力画面</title>
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="/img/company.png" alt=""/>
+        <h2 class="letter">JavaTeamDevelopment</h2>
+    </div>
+</header>
+
+<main>
+    <p>ユーザーID</p>
+    <p th:text="${userId}"></p>
+    <form
+            th:action="@{/confirm}"
+            th:method="post"
+            th:object="${introductionForm}"
+    >
+        <div class="main-container">
+            <div class="name-container">
+                <div
+                        class="error"
+                        th:if="${#fields.hasErrors('name')}"
+                        th:errors="*{name}"
+                        style="color: red"
+                >
+                    error
+                </div>
+                <label>名前</label>
+                <input type="text" th:field="*{name}"/>
+            </div>
+
+            <div class="furigana-container">
+                <div
+                        class="error"
+                        th:if="${#fields.hasErrors('kana')}"
+                        th:errors="*{kana}"
+                        style="color: red"
+                >
+                    error
+                </div>
+                <label for="furigana">フリガナ</label>
+                <input type="text" id="furigana" th:field="*{kana}"/>
+            </div>
+
+            <div class="gender-container">
+                <label>名前</label>
+                <input type="radio" th:field="*{gender}" th:value="男性"/>男性
+                <input type="radio" th:field="*{gender}" th:value="女性"/>女性
+            </div>
+
+            <div class="hobby-container">
+                <div
+                        class="error"
+                        th:if="${#fields.hasErrors('hobbies')}"
+                        th:errors="*{hobbies}"
+                        style="color: red"
+                >
+                </div>
+                <label>趣味</label>
+                <input type="checkbox" th:field="*{hobbies}" th:value="項目1"/>項目
+                <input type="checkbox" th:field="*{hobbies}" th:value="項目2"/>項目
+                <input type="checkbox" th:field="*{hobbies}" th:value="項目3"/>項目
+                <input type="checkbox" th:field="*{hobbies}" th:value="項目4"/>項目
+                <input type="checkbox" th:field="*{hobbies}" th:value="項目5"/>項目
+            </div>
+
+            <div class="text-container">
+                <label for="textMessage">一言</label>
+                <textarea id="textMessage" th:field="*{word}"></textarea>
+            </div>
+
+            <div class="move-back-container">
+                <a th:href="@{/top}">戻る</a>
+                <button type="submit">次へ</button>
+            </div>
+        </div>
+    </form>
+</main>
+</body>
+</html>
