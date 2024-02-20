@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="complete.css" th:href="@{/css/complete.css}" />
+    <title>自己紹介入力画面</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <div class="logo-container">
+        <img src="/img/company.png" />
+        <h2 class="letter">JavaTeamDevelopment</h2>
+      </div>
+    </header>
+    <!-- main -->
+    <main>
+      <div class="main-container">
+        <div class="title-container">
+          <h2>自己紹介の登録が完了しました !</h2>
+        </div>
+        <div class="inform-container wrapper">
+          <p class="message">下記の内容の自己紹介の登録が完了しました!</p>
+          <p class="code" th:text = "'管理番号: ' + ${id}"></p>
+          <p th:text = "'名前: ' + ${introductionForm.name}"></p>
+          <p th:text = "'フリガナ: ' + ${introductionForm.kana}"></p>
+          <p th:text = "'性別: ' + ${introductionForm.gender}"></p>
+          <div class="hobby-container">
+            <p>趣味: </p>
+            <p th:each="hobby : ${introductionForm.hobbies}" th:text="${hobby} + ','"></p>
+          </div>
+          <p th:text = "'一言 : ' + ${introductionForm.word}">一言: よろしくお願いします</p>
+          <p class="detail-message">
+            自己紹介の内容を変更するには登録内容一覧画面から編集して頂くか、管理者にお問い合わせください。
+          </p>
+        </div>
+        <a href="/top.html" class="top">Topへ戻る</a>
+      </div>
+    </main>
+  </body>
+</html>

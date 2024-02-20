@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.IntroductionForm;
 import com.example.demo.model.IntroductionEntity;
+import com.example.demo.model.UserEntity;
 import com.example.demo.repository.IntroductionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,5 +34,9 @@ public class IntroductionService {
 
     public void InputData(IntroductionForm introductionForm) {
         introductionRepository.save(createIntroduction(introductionForm));
+    }
+
+    public IntroductionEntity searchUserId (String userId){
+        return introductionRepository.findByUserId(userId);
     }
 }

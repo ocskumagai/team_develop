@@ -20,9 +20,6 @@ public class TopController {
 
     @GetMapping("/introduce")
     public String displayIntroduce(@ModelAttribute IntroductionForm introductionForm, Model model) {
-        //ユーザーIDを取得するメソッド
-        final  String name = SecurityContextHolder.getContext().getAuthentication().getName();
-        model.addAttribute("userId",name);
         return "introduction";
     }
 

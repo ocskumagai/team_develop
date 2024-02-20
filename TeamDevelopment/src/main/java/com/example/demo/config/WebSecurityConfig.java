@@ -13,7 +13,7 @@ import static com.example.demo.constant.UrlConst.*;
 @EnableWebSecurity
 @Configuration
 public class WebSecurityConfig {
-    //パスワードをハッシュ化するためのメソッド
+    //パスワードをハッシュ化
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

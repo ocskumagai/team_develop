@@ -50,7 +50,7 @@ public class LoginController {
     public String login(UserRequest userRequest, Model model) {
         var userInfo = userService.searchId(userRequest.getUserid());
         //ユーザー情報が取得できなかった場合;
-        //入力値とデータベースの情報が一致した場合、トップ画面に遷移する
+        //入力値とデータベースの情報が一致した場合、トップ画面に遷移す®る
         if (passwordEncoder.matches(userInfo.getPassword(), userRequest.getPassword())) {
             return "redirect:/top";
         } else {
