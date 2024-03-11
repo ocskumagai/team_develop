@@ -27,7 +27,7 @@
           <p th:text = "'フリガナ: ' + ${introductionForm.kana}"></p>
           <p th:text = "'性別: ' + ${introductionForm.gender}"></p>
           <div class="hobby-container">
-            <p>趣味: </p>
+            <p id="hobby">趣味: </p>
             <p th:each="hobby : ${introductionForm.hobbies}" th:text="${hobby} + ','"></p>
           </div>
           <p th:text = "'一言 : ' + ${introductionForm.word}">一言: よろしくお願いします</p>
@@ -35,7 +35,7 @@
             自己紹介の内容を変更するには登録内容一覧画面から編集して頂くか、管理者にお問い合わせください。
           </p>
         </div>
-        <a href="/top.html" class="top">Topへ戻る</a>
+        <a href="/top.html" th:href="@{/top}" class="top">Topへ戻る</a>
       </div>
     </main>
   </body>

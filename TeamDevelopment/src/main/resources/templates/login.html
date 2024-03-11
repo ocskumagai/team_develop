@@ -26,7 +26,8 @@
                     <input type="text" class="text" id="userInput" th:field="*{userid}"/>
                 </div>
                 <div class="password-container">
-                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red;" class="error">(error)</p>
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red;"
+                       class="error">(error)</p>
                     <label for="passwordInput">Password</label>
                     <input type="password" class="text" id="passwordInput" th:field="*{password}"/>
                 </div>

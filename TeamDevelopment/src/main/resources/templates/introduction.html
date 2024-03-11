@@ -9,14 +9,12 @@
 <body>
 <header>
     <div class="logo-container">
-        <img src="/img/company.png" alt=""/>
+        <img src="/img/company.png"/>
         <h2 class="letter">JavaTeamDevelopment</h2>
     </div>
 </header>
 
 <main>
-    <p>ユーザーID</p>
-    <p th:text="${userId}"></p>
     <form
             th:action="@{/confirm}"
             th:method="post"

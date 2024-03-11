@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IntroductionRepository extends JpaRepository<IntroductionEntity,Integer> {
+    //ユーザーIDを検索する処理
     IntroductionEntity findByUserId(String userId);
 }

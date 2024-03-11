@@ -18,15 +18,20 @@ public class ConfirmController {
     @PostMapping("/confirm/complete")
     public String createIntroduction(IntroductionForm introductionForm, Model model) {
         //ユーザーIDを取得する
-        final  String userId = SecurityContextHolder.getContext().getAuthentication().getName();
-        //データベースに保存
-        introductionService.InputData(introductionForm);
-        IntroductionEntity userInfo = introductionService.searchUserId(userId);
-        model.addAttribute("introductionForm",introductionForm);
-        model.addAttribute("id",userInfo.getIntroductionId());
-        return "complete";
+        final String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        //自己紹介の登録情報を保存
+            introductionService.InputData(introductionForm);
+            //ユーザーIDで検索
+            IntroductionEntity newUserInfo = introductionService.searchUserId(userId);
+            //Viewに入力情報を返す
+            model.addAttribute("introductionForm", introductionForm);
+            // view に管理番号を返す
+            model.addAttribute("id", newUserInfo.getIntroductionId());
+            return "complete";
     }
 
+    //入力フォームに戻る
     @PostMapping("/confirm/introduce")
     public String goBack(IntroductionForm introductionForm) {
         return "introduction";
