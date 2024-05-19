@@ -1,0 +1,203 @@
+html {
+  font-size: 16px;
+  font-family: "Noto Serif JP", serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.title {
+  padding-bottom: 30px;
+}
+
+/* header */
+
+#header {
+  background-image: url(/img/lantern-7004643_1920.jpg);
+  width: 100%;
+  height: 850px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  color: #fff;
+  margin-bottom: 60px;
+}
+
+#header h1 {
+  padding-right: 52px;
+}
+
+#header .container {
+  height: 100px;
+  padding-top: 10px;
+  width: 100%;
+  transition: 0.3s;
+  text-align: right;
+}
+
+#header .container.visible {
+  position: fixed;
+  width: 100%;
+  background-color: gray;
+}
+
+#header .container p {
+  margin-bottom: 30px;
+}
+
+#header a {
+  color: aliceblue;
+  display: inline-block;
+}
+
+#header nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+#header nav ul li {
+  font-size: 0.9rem;
+}
+
+/* concept */
+
+#concept {
+  width: 100%;
+  margin-bottom: 60px;
+  background-color: rgb(43, 42, 42);
+}
+
+#concept .concept-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#concept .concept-container img {
+  object-fit: cover;
+}
+
+#concept .concept-container .concept-info {
+  text-align: center;
+  width: 370px;
+  margin-bottom: 20px;
+}
+
+#concept .concept-container .concept-info p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.875;
+}
+
+/* company */
+#company .title-container {
+  text-align: center;
+}
+
+#company .company-info {
+  padding: 0 130px;
+  margin-bottom: 80px;
+}
+
+#company .company-info dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#company dt {
+  width: 25%;
+  border-bottom: solid 1px white;
+  padding: 15px;
+  font-weight: bold;
+}
+
+#company dd {
+  width: 75%;
+  border-bottom: solid 1px white;
+  padding: 15px;
+}
+
+#footer {
+  background-color: rgb(43, 42, 42);
+  text-align: center;
+  width: 100%;
+}
+
+#footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 886px) {
+  .wrapper {
+    margin-bottom: 70px;
+  }
+
+  /* header */
+
+  #header .container.visible {
+    position: absolute;
+    background-color: gray;
+  }
+  /* concept */
+  #concept .concept-container {
+    flex-direction: column;
+  }
+
+  #concept .concept-container img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #concept .concept-container .concept-info p {
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  /* company */
+  #company .company-info {
+    padding: 0;
+    text-align: center;
+  }
+  #company .company-info dl {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  #company .company-info dt {
+    width: 100%;
+    border-top: solid 1px white;
+    border-bottom: none;
+    padding: 5px 0;
+    font-size: 20px;
+  }
+  #company .company-info dd {
+    border: none;
+    width: 100%;
+  }
+
+  /* footer */
+
+  #footer {
+    width: 100%;
+  }
+}
